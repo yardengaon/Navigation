@@ -8,6 +8,13 @@ public class Point3D implements Geom_element, Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	private double _x,_y,_z;
+	
+	public Point3D() 
+	{
+		_x=1;
+		_y=1;
+		_z=1;
+	}
 
 	public Point3D(double x,double y,double z) 
 	{
@@ -34,6 +41,29 @@ public class Point3D implements Geom_element, Serializable
 	////////////////////////////       methods        /////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 
+	public double get_x() {
+		return this._x;
+	}
+	
+	public double get_y() {
+		return this._y;
+	}
+	
+	public double get_z() {
+		return this._z;
+	}
+	
+	public void set_x(double x) {
+		this._x = x;
+	}
+	
+	public void set_y(double y) {
+		this._y = y;
+	}
+	
+	public void set_z(double z) {
+		this._z = z;
+	}
 	
 	public double x() {return _x;}
 	public double y() {return _y;}
@@ -50,7 +80,7 @@ public class Point3D implements Geom_element, Serializable
 
 	public String toString() 
 	{
-		return ""+_x+","+_y+","+_z;
+		return ""+_y+","+_x+","+_z;
 	}
 	public double distance2D(Point3D p2) { 
 		return this.distance3D(p2.x(), p2.y(), this.z());
@@ -231,6 +261,12 @@ public final static int DOWN = 6, UP = 7;
 		double ans = 0;
 		ans = Math.atan2((p._z+h-_z), this.distance2D(p));
 		return Math.toDegrees(ans);
+	}
+	
+	public void copy(Point3D p) {
+		_x=p.x();
+		_y=p.y();
+		_z=p.z();
 	}
 	/** transform from radians to angles */
 	public static double r2d(double a) { return Math.toDegrees(a);}
