@@ -36,19 +36,18 @@ public class CsvToGame {
 	}
 
 	private  void BuilsFruit(Game game, String str) {
-		myCoords m1 = new myCoords();
 		String[] data = str.split(",");
 		Point3D p1 = new Point3D(Double.parseDouble(data[3]),Double.parseDouble(data[2]),Double.parseDouble(data[4]));
-		game.addFru(new fruit(new Point3D(m1.VectorToframe(new Point3D(m1.gpsToVector(p1)) ,1433, 642))));
+		game.addFru(new fruit(new Point3D(myCoords.getInstance().VectorToframe(new Point3D(myCoords.getInstance().gpsToVector(p1)) ,1433, 642))));
 		System.out.println(game.getFru(i).getPoint());
 		i++;
 	}
 
 	private  void BuildPackman(Game game, String str) {
-		myCoords m1 = new myCoords();
+		//myCoords m1 = new myCoords();
 		String[] data = str.split(",");
 		Point3D p1 = new Point3D(Double.parseDouble(data[3]),Double.parseDouble(data[2]),Double.parseDouble(data[4]));
-		game.addPac(new Packman(new Point3D(m1.VectorToframe(new Point3D(m1.gpsToVector(p1)) ,1433, 642)) ,Integer.parseInt(data[5])));
+		game.addPac(new Packman(new Point3D(myCoords.getInstance().VectorToframe(new Point3D(myCoords.getInstance().gpsToVector(p1)) ,1433, 642)) ,Integer.parseInt(data[5])));
 		System.out.println(game.getPac(j).getPoint());
 		System.out.println();
 		j++;

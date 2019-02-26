@@ -27,12 +27,5 @@ public class Packmans {
 	public void remove(int i) {
 		Packmansa.remove(i);
 	}
-	
-//	public Packman set(int i) {
-//		Packmansa.sort
-//		return Packmansa.set(i, get(i));
-//	}
-	
-	
-	
+		
 }

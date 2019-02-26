@@ -87,7 +87,7 @@ public class Packman extends Point3D{
 		return this.r;
 	}
 
-	myCoords c = new myCoords();
+	//myCoords c = new myCoords();
 	double distancex;
 	double distancey;
 	double distance;
@@ -103,7 +103,7 @@ public class Packman extends Point3D{
 		while (time > time12 && i<this.getRoute().size()-1) {
 			i++;
 			if(i<this.getRoute().size()-1)
-				distance = c.distanceV2d(this.getRoute().get(i), this.getRoute().get(i+1));
+				distance = myCoords.getInstance().distanceV2d(this.getRoute().get(i), this.getRoute().get(i+1));
 			time12 += (distance/this.speed);
 		}
 		if(i<this.getRoute().size()-1) {

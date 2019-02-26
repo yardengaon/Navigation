@@ -16,7 +16,6 @@ public class ShortestPathAlgo {
 
 	public void route(Game g) {
 
-		myCoords c = new myCoords(); // TEST
 		double distance3 = 0;
 		double start = 10000000000.0;
 		double time = 0;
@@ -30,7 +29,7 @@ public class ShortestPathAlgo {
 		for(int i = 0 ; i<fruSize ; i++) {
 			for(int j = 0 ; j<pacSize ; j++) {
 				for(int k = 0 ; k<f1.size() ; k++) {
-					distance3 = c.distanceV2d((p1.get(j).getPoint()) , (f1.get(k).getPoint()));
+					distance3 = myCoords.getInstance().distanceV2d((p1.get(j).getPoint()) , (f1.get(k).getPoint()));
 					time = p1.get(j).getTime() + (distance3/p1.get(j).getSpeed());
 					if (time < start) {
 						start = time;
@@ -42,9 +41,7 @@ public class ShortestPathAlgo {
 			p1.get(counter1).addTime(start);
 			p1.get(counter1).addRoete(f1.get(counter).getPoint());
 			p1.get(counter1).move(f1.get(counter).getPoint());
-			//System.out.println(g.getPacs().get(0));
 			start = 10000000000.0;
-			//kj11.add(f1.get(counter));
 			f1.remove(counter);
 			counter = -1;
 			counter1 = -1;

@@ -30,8 +30,7 @@ public class GameToKml {
 
 		for(int i=0 ; i<a.fruSize() ; i++) {
 		Placemark p = doc.createAndAddPlacemark();
-		myCoords s = new myCoords();
-			Point3D k = s.frameToGps(a.getFru(i).getPoint().get_x(), a.getFru(i).getPoint().get_y());
+			Point3D k = myCoords.getInstance().frameToGps(a.getFru(i).getPoint().get_x(), a.getFru(i).getPoint().get_y());
 			p.withOpen(Boolean.TRUE).createAndSetPoint().addToCoordinates(k.get_x(),k.get_y());
 			TimeSpan t = p.createAndSetTimeSpan();
 			String time1 = CTime1(0 + time*1000);
@@ -41,18 +40,16 @@ public class GameToKml {
 		}
 		for(int i=0 ; i<a.pacSize() ; i++) {
 			Placemark p = doc.createAndAddPlacemark();
-			myCoords s = new myCoords();
-			Point3D k = s.frameToGps(a.getPac(i).getPoint().get_x(), a.getPac(i).getPoint().get_y());
+			Point3D k = myCoords.getInstance().frameToGps(a.getPac(i).getPoint().get_x(), a.getPac(i).getPoint().get_y());
 			p.withOpen(Boolean.TRUE).createAndSetPoint().addToCoordinates(k.get_x(),k.get_y());
 			TimeSpan t = p.createAndSetTimeSpan();
 			String time1 = CTime1(0 + time*1000);
 			String time2 = CTime1(1000 + time*1000);
 			t.setBegin(time1); // the time now 
 			t.setEnd(time2); // end point 
-		}
-		
-		
-
+		}	
+	}
+	public void toFile() {
 		try {
 			kml.marshal(new File("Run.kml"));
 		} catch (Exception e) {

@@ -6,12 +6,20 @@ import Geom.Point3D;
 
 public class myCoords implements coords_converter  {
 	
+	private static myCoords obj1 = null;
+	
 	private Point3D TipPoint1;
 	private Point3D TipPoint2;
 
-	public myCoords() {
+	private myCoords() {
 		this.TipPoint1 = new Point3D(35.20234, 32.10584);
 		this.TipPoint2 = new Point3D(35.21237, 32.10193);
+	}
+	
+	public static myCoords getInstance() {
+		if(obj1 == null)
+			obj1 = new myCoords();
+		return obj1;
 	}
 	
 	int r_earth = 6371000 ;
@@ -94,8 +102,6 @@ public class myCoords implements coords_converter  {
 		double vecY = TipPoint1.get_y();
 		vecX += (TipPoint2.get_x() - TipPoint1.get_x()) * (frame_x/1432.0);
 		vecY += (TipPoint2.get_y() - TipPoint1.get_y()) * (frame_y/642.0);
-		System.out.println(vecX);
-		System.out.println(vecY);
 		
 		return new Point3D(vecX, vecY);
 	}
