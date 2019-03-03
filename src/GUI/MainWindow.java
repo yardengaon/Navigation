@@ -32,11 +32,13 @@ import Geom.ShortestPathAlgo;
 import Geom.fruit;
 import Geom.fruits;
 
-
+/**
+ * This class is responsible on the gui
+ */
 public class MainWindow extends JFrame implements MouseListener, ActionListener
 {
 	/**
-	 * 
+	 * Variable statements
 	 */
 	private static final long serialVersionUID = 1L;
 	public BufferedImage myImage;
@@ -58,6 +60,9 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 	BufferedImage image2;
 	GameToKml a1 = new GameToKml();
 
+	/**
+	 * MainWindow constructor
+	 */
 	public MainWindow() {
 		try {
 			initGUI();
@@ -68,6 +73,9 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 		this.addMouseListener(this); 
 	}
 
+	/**
+	 * create a menu button in GUI
+	 */
 	private void initGUI() throws IOException 
 	{
 		MenuBar menuBar = new MenuBar();
@@ -86,6 +94,9 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 		menu.add(item4);
 		this.setMenuBar(menuBar);
 		
+		/**
+		 * create (add packman) button
+		 */
 		item1.addActionListener(new ActionListener() 
 		{
 			@Override
@@ -94,6 +105,9 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 			}
 		});
 
+		/**
+		 * create (add fruit) button
+		 */
 		item2.addActionListener(new ActionListener() 
 		{
 			@Override
@@ -102,6 +116,9 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 			}
 		});
 
+		/**
+		 * create (files) button
+		 */
 		item3.addActionListener(new ActionListener() 
 		{
 			@Override
@@ -116,6 +133,9 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 			}
 		});
 
+		/**
+		 * create (run) button
+		 */
 		item4.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) { 
@@ -194,6 +214,10 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 		}		
 	}
 
+	/**
+	 * Responsible for drawing the packmans and fruits to the screen 
+	 * @param g the graphics
+	 */
 	public void paint(Graphics g)
 	{
 		BufferedImage bufferedImage = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -281,8 +305,15 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 		}
 	}
 
+	/**
+	 * a class that Responsible for calculating the location of the fruit and the pacmans painting in real time.
+	 * and create the kml file.
+	 */
 	public class MyThread extends Thread{
 
+		/**
+		 * thread run method
+		 */
 		public void run() {
 			for (int h = 0 ; h < 2000 ; h++) {
 				for (int k = 0 ; k<g1.getFrus().size() ; k++) {

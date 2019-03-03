@@ -5,15 +5,26 @@ import java.util.Comparator;
 import Coords.myCoords;
 import GUI.MainWindow;
 
-
+/**
+ * this class calculate the Shortest Path Algoritem for any packman in the game
+ */
 public class ShortestPathAlgo {
 
+	//Variable statements
 	private Game Game1;
 
+	/**
+	 * ShortestPathAlgo constructor
+	 * @param g the game that we calculate a route to any packman
+	 */
 	public ShortestPathAlgo(Game g) {
 		this.Game1 = g;
 	}
 
+	/**
+	 * route method, builde the shortest Path Algoritem for any packman in the game
+	 * @param g the game that we calculate a route to any packman
+	 */
 	public void route(Game g) {
 
 		double distance3 = 0;

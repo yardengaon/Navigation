@@ -27,18 +27,30 @@ public class Circle implements Geom_element {
 		return -1;
 	}
 
+	/**
+	 * @return the Circle point
+	 */
 	public Point3D get_cen() {
 		return _cen;
 	}
 
+	/**
+	 * @param _cen set the Circle point
+	 */
 	private void set_cen(Point3D _cen) {
 		this._cen = _cen;
 	}
 
+	/**
+	 * @return the radius of eating
+	 */
 	public double get_radius() {
 		return _radius;
 	}
 
+	/**
+	 * @param _radius set the radios of eating
+	 */
 	private void set_radius(double _radius) {
 		this._radius = _radius;
 	}

@@ -4,18 +4,21 @@ import java.util.ArrayList;
 
 import Coords.myCoords;
 
+/**
+ * this class represent a simple fruit 
+ */
 public class Packman extends Point3D{
 
-	/**
-	 * 
-	 */
+	//Variable statements
 	private static final long serialVersionUID = 1L;
 	private int speed;
 	private double time1;
 	private Point3D p;
 	private Route r;
 
-
+	/**
+	 * Packman constructor
+	 */
 	public Packman() {
 		this.speed = 1;
 		this.p = new Point3D();	
@@ -24,6 +27,10 @@ public class Packman extends Point3D{
 		this.r.add(new Point3D(this.p));
 	}
 
+	/**
+	 * Packman constructor
+	 * @param pac build a packman from a packman 
+	 */
 	public Packman(Packman pac) {
 		this.speed = pac.speed;
 		this.p = pac.p;
@@ -32,6 +39,10 @@ public class Packman extends Point3D{
 		this.r.add(this.p);
 	}
 
+	/**
+	 * Packman constructor
+	 * @param p12 build a packman from a Point3D
+	 */
 	public Packman(Point3D p12) {
 		this.speed = 1;
 		this.p = new Point3D(p12);
@@ -40,6 +51,11 @@ public class Packman extends Point3D{
 		this.r.add(new Point3D(this.p));
 	}
 	
+	/**
+	 * Packman constructor
+	 * @param p12 build a packman from a Point3D
+	 * @param speed add speed Variable
+	 */
 	public Packman(Point3D p12, int speed) {
 		this.speed = speed;
 		this.p = new Point3D(p12);
@@ -48,31 +64,56 @@ public class Packman extends Point3D{
 		this.r.add(new Point3D(this.p));
 	}
 
+	/**
+	 * @return Point3D get the point from the packman
+	 */
 	public Point3D getPoint() {
 		return this.p;
 	}
 
+	/**
+	 * add Roete method
+	 * @param p the point3d that we wont to add to the route
+	 */
 	public void addRoete(Point3D p) {
 		this.r.add(new Point3D(p));
 
 	}
 
+	/**
+	 * move method
+	 * @param p the point3d that we wont to move
+	 */
 	public void move(Point3D p) {
 		this.p = p;
 	}
 
+	/**
+	 * @return packman speed
+	 */
 	public int getSpeed() {
 		return this.speed;
 	}
 
+	/**
+	 * @return packman time
+	 */
 	public double getTime() {
 		return this.time1;
 	}
 
+	/**
+	 * add time method
+	 * @param t the packman time
+	 */
 	public void addTime(double t) {
 		this.time1 = t;
 	}
 
+	/**
+	 * print a string that Property the packman
+	 * @return string that Property the packman
+	 */
 	public String toString() {
 		String str = "";
 		for(int i=0 ; i<this.r.size() ; i++) {
@@ -83,11 +124,13 @@ public class Packman extends Point3D{
 		return str;
 	}
 
+	/**
+	 * @return the packman route
+	 */
 	public Route getRoute() {
 		return this.r;
 	}
 
-	//myCoords c = new myCoords();
 	double distancex;
 	double distancey;
 	double distance;
@@ -99,6 +142,10 @@ public class Packman extends Point3D{
 	int count = 1;
 	Point3D p1 = new Point3D();
 
+	/**
+	 * calculate were the packman located in real-time
+	 * @param time the packman time in real-time
+	 */
 	public void now(int time) {
 		while (time > time12 && i<this.getRoute().size()-1) {
 			i++;

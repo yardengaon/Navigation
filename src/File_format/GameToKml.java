@@ -21,11 +21,19 @@ import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.TimeSpan;
 
+/**
+ * This class is responsible for create from a game a kml file
+ */
 public class GameToKml {
 	
 	Kml kml = new Kml();
 	Document doc = kml.createAndSetDocument();
 
+	/**
+	 * create from a game a kml file
+	 * @param game the game that become kml file  
+	 * @param time to calculate any time were to put the packmans and the fruits
+	 */
 	public void writeFileKM(Game a , int time) {
 
 		for(int i=0 ; i<a.fruSize() ; i++) {
@@ -49,6 +57,10 @@ public class GameToKml {
 			t.setEnd(time2); // end point 
 		}	
 	}
+	
+	/**
+	 * write to the kml file
+	 */
 	public void toFile() {
 		try {
 			kml.marshal(new File("Run.kml"));
@@ -57,6 +69,11 @@ public class GameToKml {
 		}
 	}
 
+	/**
+	 * Format the string that represents time accordingly to the kml
+	 * @param a time in mills
+	 * @return string that represents time accordingly to the kml
+	 */
 	public String CTime1(int a) {
 		String time =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTimeInMillis()+a);
 		time = time.replaceAll(" ", "T");

@@ -1,14 +1,19 @@
 package Geom;
 
 import java.io.Serializable;
+
+/**
+ * This class represents a 3D point in space.
+ */
 public class Point3D implements Geom_element, Serializable 
 {
-	/**
-	 * This class represents a 3D point in space.
-	 */
+	//Variable statements
 	private static final long serialVersionUID = 1L;
 	private double _x,_y,_z;
 	
+	/**
+	 * Point3D constructor
+	 */
 	public Point3D() 
 	{
 		_x=1;
@@ -16,6 +21,12 @@ public class Point3D implements Geom_element, Serializable
 		_z=1;
 	}
 
+	/**
+	 * Point3D constructor
+	 * @param x value of x
+	 * @param y value of y
+	 * @param z value of z
+	 */
 	public Point3D(double x,double y,double z) 
 	{
 		_x=x;
@@ -23,12 +34,22 @@ public class Point3D implements Geom_element, Serializable
 		_z=z;
 	}
 
+	/**
+	 * Point3D constructor
+	 * @param p point3d
+	 */
 	public Point3D(Point3D p) 
 	{
 		_x=p.x();
 		_y=p.y();
 		_z=p.z();
 	}
+	
+	/**
+	 * Point3D constructor
+	 * @param x value of x
+	 * @param y value of y
+	 */
 	public Point3D(double x,double y) 
 	{this(x,y,0);}
 	public Point3D(String s) {
@@ -41,50 +62,116 @@ public class Point3D implements Geom_element, Serializable
 	////////////////////////////       methods        /////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 
+	/**
+	 * @return x value
+	 */
 	public double get_x() {
 		return this._x;
 	}
 	
+	/**
+	 * @return y value
+	 */
 	public double get_y() {
 		return this._y;
 	}
 	
+	/**
+	 * @return z value
+	 */
 	public double get_z() {
 		return this._z;
 	}
 	
+	/**
+	 * @param x value of x 
+	 */
 	public void set_x(double x) {
 		this._x = x;
 	}
 	
+	/**
+	 * @param y value of y 
+	 */
 	public void set_y(double y) {
 		this._y = y;
 	}
 	
+	/**
+	 * @param z value of z 
+	 */
 	public void set_z(double z) {
 		this._z = z;
 	}
 	
+	/**
+	 * @return x value
+	 */
 	public double x() {return _x;}
+	
+	/**
+	 * @return y value
+	 */
 	public double y() {return _y;}
+	
+	/**
+	 * @return z value
+	 */
 	public double z() {return _z;}
+	
+	/**
+	 * @return integer x value
+	 */
 	public int ix() {return (int)_x;}
+	
+	/**
+	 * @return integer y value
+	 */
 	public int iy() {return (int)_y;}
+	
+	/**
+	 * @return integer z value
+	 */
 	public int iz() {return (int)_z;}
 		
+	/**
+	 * add x,y,z values to point3d
+	 * @param p the point that we want to add
+	 */
 	public void add(Point3D p) { add(p._x,p._y,p._z);}
+	
+	/**
+	 * add x,y,z values to point3d
+	 * @param dx the x value that we want to add
+	 * @param dy the y value that we want to add
+	 * @param dz the z value that we want to add
+	 */
 	public void add(double dx, double dy, double dz) {
 			_x+=dx;_y+=dy;_z+=dz;
 		}
+	
+	/**
+	 * add x,y values to point3d
+	 * @param dx the x value that we want to add
+	 * @param dy the y value that we want to add
+	 */
 	public void add(double x, double y){this.add(x,y,0);}
 
+	/**
+	 * print a string that Property the point3d
+	 * @return string that Property the point3d
+	 */
 	public String toString() 
 	{
 		return ""+_y+","+_x+","+_z;
 	}
+	
+	@Override
 	public double distance2D(Point3D p2) { 
 		return this.distance3D(p2.x(), p2.y(), this.z());
 	}
+	
+	@Override
 	public double distance3D(Point3D p2) {
 		return this.distance3D(p2.x(), p2.y(), p2.z());}
 	public double distance3D(double x, double y , double z)
@@ -96,14 +183,29 @@ public class Point3D implements Geom_element, Serializable
 		return Math.sqrt(t);
 	}
 
+	/**
+	 * equals method
+	 * @param p2 the point that we wont to compare
+	 */
 	public boolean equals(Point3D p2)
 	{
 		return ( (_x==p2._x) && (_y==p2._y) && (_z==p2._z) );
 	}
+	
+	/**
+	 * equals method with deviation
+	 * @param p2 the point that we wont to compare
+	 * @param dist the max deviation
+	 */
 	public boolean close2equals(Point3D p2, double dist)
 	{
 		return ( this.distance3D(p2)< dist );
 	}
+	
+	/**
+	 * equals method for x and y
+	 * @param p the point that we wont to compare x arnd y
+	 */
 	  public boolean equalsXY (Point3D p)
 	    {return p._x == _x && p._y == _y;}
 	    

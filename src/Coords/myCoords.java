@@ -4,25 +4,32 @@ import java.awt.Point;
 
 import Geom.Point3D;
 
+/**
+ * This class is responsible for Converts coordinates
+ */
 public class myCoords implements coords_converter  {
 	
 	private static myCoords obj1 = null;
-	
 	private Point3D TipPoint1;
 	private Point3D TipPoint2;
+	
 
+	/**
+	 * Contractor myCoords
+	 */
 	private myCoords() {
 		this.TipPoint1 = new Point3D(35.20234, 32.10584);
 		this.TipPoint2 = new Point3D(35.21237, 32.10193);
 	}
 	
+	/**
+	 * Contractor myCoords singeltone
+	 */
 	public static myCoords getInstance() {
 		if(obj1 == null)
 			obj1 = new myCoords();
 		return obj1;
 	}
-	
-	int r_earth = 6371000 ;
 
 	@Override
 	public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
@@ -74,6 +81,12 @@ public class myCoords implements coords_converter  {
 		return false;
 	}
 
+	/**
+	 * calculate the distance between 2 gps points
+	 * @param gps0 the first gps point
+	 * @param gps1 the second gps point
+	 * @return distance between 2 gps points
+	 */
 	public double distance2d(Point3D gps0, Point3D gps1) {
 		double distance3d;
 		double diff = gps0.get_y() - gps1.get_y();
@@ -87,6 +100,11 @@ public class myCoords implements coords_converter  {
 		return distance3d;
 	}
 
+	/**
+	 * Convert from gps to vector
+	 * @param gps the gps point that we wont to convert
+	 * @return vector Point3D 
+	 */
 	public Point3D gpsToVector(Point3D gps) {
 
 		double r = 6371000 + gps.get_z();
@@ -96,6 +114,12 @@ public class myCoords implements coords_converter  {
 		return new Point3D(x,y,gps.z());
 	}
 
+	/**
+	 * Convert from frame to gps point
+	 * @param frame_x the value of x on the frame 
+	 * @param frame_y the value of y on the frame
+	 * @return gps Point3D  
+	 */
 	public Point3D frameToGps(double frame_x, double frame_y) {
 		
 		double vecX = TipPoint1.get_x();
@@ -106,6 +130,13 @@ public class myCoords implements coords_converter  {
 		return new Point3D(vecX, vecY);
 	}
 	
+	/**
+	 * Convert from vector to frame point
+	 * @param vec the vector point that we wont to convert
+	 * @param xFr value of x on the frame
+	 * @param yFr value of y on the frame 
+	 * @return frame Point3D 
+	 */
 	public Point3D VectorToframe(Point3D vec, double xFr, double yFr) {
 		
 		Point3D pStart = gpsToVector(this.TipPoint1);
@@ -120,24 +151,35 @@ public class myCoords implements coords_converter  {
 		return new Point3D(frameX, frameY);
 	}
 	
-	public double distanceV2d(Point3D gps0, Point3D gps1) {
+	/**
+	 * calculate the distance between 2 vector points
+	 * @param v0 the first vector point
+	 * @param v1 the second vector point
+	 * @return distance between 2 vector points 
+	 */
+	public double distanceV2d(Point3D v0, Point3D v1) {
 		double distance3d;
-		double diff = gps0.get_y() - gps1.get_y();
-		double diff1 = gps0.get_x() - gps1.get_x();
+		double diff = v0.get_y() - v1.get_y();
+		double diff1 = v0.get_x() - v1.get_x();
 		distance3d = Math.sqrt(Math.pow(diff, 2) + Math.pow(diff1, 2));
 
 		return distance3d;
 	}
 	
-	public Point3D VectorToGps(Point3D gps) {
+	/**
+	 * Convert from vector to gps
+	 * @param v the vector point that we wont to convert
+	 * @return gps Point3D 
+	 */
+	public Point3D VectorToGps(Point3D v) {
 
-		double r = 6371000 + gps.get_z();
-		double x = (gps.get_x()/r);
+		double r = 6371000 + v.get_z();
+		double x = (v.get_x()/r);
 		x = Math.toDegrees(Math.asin(x));
-		double y = (gps.get_y()/r/0.847091174);
+		double y = (v.get_y()/r/0.847091174);
 		y = Math.toDegrees(Math.asin(y));
 
-		return new Point3D(x,y,gps.z());
+		return new Point3D(x,y,v.z());
 	}
 	
 }

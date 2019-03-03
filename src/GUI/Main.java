@@ -8,9 +8,15 @@ import javax.swing.JPanel;
 import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 
+/**
+ * Main class 
+ */
+public class Main {
 
-public class Main 
-{
+	/**
+	 * Main method 
+	 * create mainwindow and open the map
+	 */
 	public static void main(String[] args) throws IOException
 	{
 		MainWindow window = new MainWindow();
