@@ -12,7 +12,7 @@ Gui package has the:
 - MainWindow : showing all packmans and fruits path .
 ### Geom 
 Geom package has the:
-- ShortestPathAlgo: calculate the shrtest Route to evry packman 
+- ShortestPathAlgo: calculate the shrtest Route to every packman 
 - Point3D: represent a single point3D in the game 
 - fruit: represent a single fruit in the game 
 - packman: represent a single packman in the game 
