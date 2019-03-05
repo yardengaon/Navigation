@@ -31,7 +31,7 @@ public class GameToKml {
 
 	/**
 	 * create from a game a kml file
-	 * @param game the game that become kml file  
+	 * @param a the game that become kml file  
 	 * @param time to calculate any time were to put the packmans and the fruits
 	 */
 	public void writeFileKM(Game a , int time) {

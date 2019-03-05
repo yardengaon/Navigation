@@ -9,6 +9,7 @@ import Geom.Point3D;
  */
 public class myCoords implements coords_converter  {
 	
+	//Variable statements
 	private static myCoords obj1 = null;
 	private Point3D TipPoint1;
 	private Point3D TipPoint2;

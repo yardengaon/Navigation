@@ -41,7 +41,8 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 	 * Variable statements
 	 */
 	private static final long serialVersionUID = 1L;
-	public BufferedImage myImage;
+	Map obj2 = Map.getInstance();
+	public BufferedImage myImage = obj2.getImage();
 	public boolean flag = true;
 	MyThread thread;
 	static JLabel l;
@@ -84,7 +85,6 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 		MenuItem item2 = new MenuItem("fruit");
 		MenuItem item3 = new MenuItem("Run");
 		MenuItem item4 = new MenuItem("files");
-		myImage = ImageIO.read(new File("Ariel1.png"));
 		image1 = ImageIO.read(new File("PackmanF.png"));
 		image2 = ImageIO.read(new File("FruitF.png"));
 		menuBar.add(menu);
@@ -206,12 +206,7 @@ public class MainWindow extends JFrame implements MouseListener, ActionListener
 
 			}
 		});
-
-		try {
-			myImage = ImageIO.read(new File("Ariel1.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}		
+		
 	}
 
 	/**
