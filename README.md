@@ -37,8 +37,6 @@ The class create a game from csv file
 Running on Google Earth simulates a game like in gui in Java
 ### ExampleAfterRun (the Picture is from GoogleEarth) : 
 ![screenshot 50](https://user-images.githubusercontent.com/45077625/53831341-46aa1100-3f8d-11e9-9856-a149133a2386.png)
- #### ClassDiagram
-![screenshot 48](https://user-images.githubusercontent.com/45077625/53831401-70633800-3f8d-11e9-869d-74c6c6cbdfca.png)
 ### ExampleGameMap
 ![screenshot 51](https://user-images.githubusercontent.com/45077625/53831552-c041ff00-3f8d-11e9-992f-aa2f9eb4c1b1.png)
 ### ExampleBeforeRun
