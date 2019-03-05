@@ -1,4 +1,4 @@
-# PacmanNavigation![200px-pac_man svg]
+# PacmanNavigation
 
 ## Descreption
 
@@ -7,17 +7,17 @@ Will be displayed on the map any track that Packman has made
 There is an example below the map.
 
 ### Gui 
-Gui package:
+Gui package has the:
 - Map: singeltone object, represent the map that we want .
 - MainWindow : showing all packmans and fruits path .
 ### Geom 
-Geom package:
-- ShortestPathAlgo: calculate the shrtest Route to evry packman .
-- Point3D: represent a single point3D in the game .
-- fruit: represent a single fruit in the game .
-- packman: represent a single packman in the game .
-- fruits: represent all the fruits in the game .
-- packmans: represent all the packmans in the game .
+Geom package has the:
+- ShortestPathAlgo: calculate the shrtest Route to evry packman 
+- Point3D: represent a single point3D in the game 
+- fruit: represent a single fruit in the game 
+- packman: represent a single packman in the game 
+- fruits: represent all the fruits in the game 
+- packmans: represent all the packmans in the game 
   ..
 ### Coords 
 The Coords package has the:
