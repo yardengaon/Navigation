@@ -31,10 +31,8 @@ The Coords package has the:
  
 ### File format 
 The File format package has:
-#### CsvToGame class
-The class create a game from csv file
-#### GameToKML class
-Running on Google Earth simulates a game like in gui in Java
+  - CsvToGame: The class create a game from csv file
+  - GameToKML: Running on Google Earth simulates a game like in gui in Java
 
 ### ExampleGameMap
 ![screenshot 51](https://user-images.githubusercontent.com/45077625/53831552-c041ff00-3f8d-11e9-992f-aa2f9eb4c1b1.png)
