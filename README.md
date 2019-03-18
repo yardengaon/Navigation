@@ -25,7 +25,6 @@ The Coords package has the:
   Represents a Class that allows us to perform calculations between GPS points such as:
   - Move a point with a vector
   - Calculates a vector between two points
-  - Azimuth calculation, Elevation
   - Distance between two points
   ..
  
@@ -49,10 +48,7 @@ The File format package has:
 
  - converting coordinates : https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates  
 
-- calculating 3D vector : https://stackoverflow.com/questions/41912407/calculate-a-vector-in-meter-from-two-gps-coordinates 
-
  - calculating distance : http://www.vias.org/comp_geometry/math_coord_convert_3d.htm
 
 - how to convert csv to kml(from the resource) : http://convertcsv.com/csv-to-kml.htm 
 
-- the idea of Azimuth : https://en.wikipedia.org/wiki/Azimuth
